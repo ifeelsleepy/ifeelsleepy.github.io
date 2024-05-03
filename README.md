@@ -388,4 +388,8 @@ episodes, but I couldn't see much improvement. TODO:why
 
 ## Results
 
-![](images/original-vs-adj-so2.png) ![](images/tmp-so2-adjust.png)
+![](images/tmp-so2-adjust.png) 
+![](images/original-adjusted-so2.png)
+
+![](images/multi_aerosol_temp.png)
+![](images/multi_aerosol_so2.png)

@@ -76,15 +76,6 @@ This experiment aims to offer insights into how geoengineering strategies can
 impact climate, potentially contributing to broader conversations about managing
 climate change.
 
-> NOTE: finding a climate model was a challenge. Discuss the tradeoffs, the need
-> to get a climate model that interfaced well with python, and also the need to
-> find a climate model that was efficient enough that you could run simulations
-> in a short timespan.
->
-> Basically - explain more about why you selected PyHector (and what other
-> options you looked at, if any). "it was hard to get this running" is ok to
-> say, that's part of it.
-
 So… Let's Begin!
 
 To find a suitable climate model, I explored various General Circulation Models
@@ -95,9 +86,9 @@ C++【TODO: insert link】, with a Python interface (PyHector) that's a perfect
 fit for my project.
 
 Hector offers key functionalities such as simulating temperature responses to
-aerosol injections, with variables including SO2 emissions, CO2 levels, and
+aerosol injections, with variables including 'SO2 emissions', CO2 levels, and
 global temperatures. This makes it particularly useful for exploring how aerosol
-levels affect climate. _TODO maybe ill add the col names in bold_
+levels affect climate.
 
 I conducted an initial experiment, increasing SO2 levels in 2030 by 1000 times,
 leading to a drastic drop in temperature to -25°C. Well, that's one way to
@@ -129,8 +120,6 @@ I integrated the climate model with a reinforcement learning (RL) agent using
 the Proximal Policy Optimization (PPO) algorithm. Here's how the implementation
 works:
 
-> NOTE: since these are so long, make them their own sections (eg, with
-> **boldface**, rather than using numbered lists)
 
 **Model Setup:** The Hector model is used to simulate climate dynamics. This
 model's Python interface provides functions to modify variables like SO2
@@ -189,8 +178,9 @@ dynamic adjustments by the RL agent.
              return x
      ```
 
-2. Training the Agent: I implemented a training loop where the agent selects
-   actions, modifies emissions, and runs the Hector model to observe the effects
+**Training the Agent**
+I implemented a training loop where the agent selects
+actions, modifies emissions, and runs the Hector model to observe the effects
 
    ```python
    def train_policy(ssp245):
@@ -303,7 +293,7 @@ After training it for nearly 10,000 episodes, I was able to see a slight
 decrease in overall climate, but _describe why it wasn’t as efficient TODO:
 maybe related to reward function and overfitting_
 
-Part 2: Expanding the Agent to Control Multiple Aerosols
+## Part 2: Expanding the Agent to Control Multiple Aerosols
 
 Having established a foundation for managing SO2 emissions, I expanded the
 agent's capabilities by allowing it to control multiple aerosols simultaneously.

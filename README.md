@@ -289,9 +289,10 @@ actions, modifies emissions, and runs the Hector model to observe the effects
       - Clipping:Gradients are clipped, and both networks are updated through
         backpropagation.
 
-After training it for nearly 10,000 episodes, I was able to see a slight
-decrease in overall climate, but _describe why it wasn’t as efficient TODO:
-maybe related to reward function and overfitting_
+After letting the agent train for 10,000 episodes, I did see a small dip in the temperature, but it wasn't quite the game-changer I was hoping for.
+
+Looking back, I think there were a couple of reasons why the results weren't as impressive as I wanted. First off, the reward function I used might not have been the best fit for the job. Another issue was the limited window I gave the agent. I only allowed it to adjust emissions by +/- 15% from the starting point. 
+Also, the agent probably needed more 10,000 episodes to really hone its skills and figure out the best game plan.
 
 ## Part 2: Expanding the Agent to Control Multiple Aerosols
 
@@ -373,9 +374,9 @@ Here's how this new implementation builds upon the initial setup:
    - Gradient Descent:Total loss (policy + value) is backpropagated, and both
      networks are updated using their respective optimizers.
 
-After the implentation of the updated agent, I trained it for about 5000
-episodes, but I couldn't see much improvement. TODO:why
+Okay, so the multiple aerosol control experiment? Didn't go as planned. After 5,000 episodes (which is nothing in AI time), the temperature actually went up. 
 
+Turns out, controlling multiple aerosols is way harder than it looks. Each one affects the climate differently, and the agent just couldn't keep up. I guess it needs more training time, a better reward function to show better results. 
 ## Results
 
 ![](images/tmp-so2-adjust.png) 
